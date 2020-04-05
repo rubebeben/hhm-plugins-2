@@ -10,7 +10,7 @@ room.pluginSpec = {
     allowedRoles : ['host'],
   },
   dependencies: [
-    `rub/doc-divs`,
+    `rojo/doc-divs`,
     `sav/commands`,
     `sav/roles`,
   ],
@@ -75,8 +75,8 @@ function onGameStopHandler () {
 }
 
 room.onRoomLink = function onRoomLink () {
-  doc = room.getPlugin(`rub/doc-divs`).getDoc();
-  form = room.getPlugin(`rub/doc-divs`).getForm();
+  doc = room.getPlugin(`rojo/doc-divs`).getDoc();
+  form = room.getPlugin(`rojo/doc-divs`).getForm();
   recstable = doc.createElement('table');
   recstable.style = "width: 400px; position: relative; padding: 5px 10px; border: 1px solid black;";
   recstable.innerHTML = `
