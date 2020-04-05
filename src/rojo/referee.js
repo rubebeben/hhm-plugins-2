@@ -60,7 +60,7 @@ function checkBallPosition () {
       isBallOutsideStadium = true;
       if ( ballPosition.y < currentMap.goalLine.y && ballPosition.y > -currentMap.goalLine.y ) return;
       room.setDiscProperties( 0, { xspeed : 0, yspeed : 0 } );
-      var lastPlayerThatTouchTheBall = room.getPlayer( room.getPlugin( `rub/ball-touch` ).getLastPlayersWhoTouchedTheBall()[0] );
+      var lastPlayerThatTouchTheBall = room.getPlayer( room.getPlugin( `rojo/ball-touch` ).getLastPlayersWhoTouchedTheBall()[0] );
       if ( currentMap.rules.goalKick && ballPosition.x > currentMap.width && lastPlayerThatTouchTheBall.team == Team.RED ) {
         if ( ballPosition.y > currentMap.goalLine.y ) room.setDiscProperties( 0, { x : currentMap.goalKick.x + ball.radius, y : currentMap.goalKick.y } );
         else if ( ballPosition.y < -currentMap.goalLine.y ) room.setDiscProperties( 0, { x : currentMap.goalKick.x + ball.radius, y : -currentMap.goalKick.y } );
@@ -129,5 +129,4 @@ function onStadiumChangeHandler ( newStadiumName, byPlayer ) {
 room.onRoomLink = function onRoomLink () {
   room.onStadiumChange = onStadiumChangeHandler;
   room.onGameTick = onGameTickHandler;
-  // room.onPlayerJoin = ( player ) => { room.sendAnnouncement( "[DEBUG] Plugin `rub/referee` loaded" ) }; // DEBUG
 }
